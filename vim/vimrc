@@ -1,10 +1,22 @@
 syntax on
 syntax enable
-filetype plugin indent on
+"filetype plugin indent on
+filetype plugin on
+
+" TAB is 4 spaces, change existing
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
+
+" highlight search results
+set hlsearch
+
+set mouse=a
 set number
+set helplang=en
+set history=50
+"set cursorline
 
 set t_Co=256
 if &term =~ '256color'
@@ -18,7 +30,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"Syntactic
+"Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -28,7 +40,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
-
-
-
+"Now infect with plugins
 execute pathogen#infect()
+
+colorscheme valloric 
