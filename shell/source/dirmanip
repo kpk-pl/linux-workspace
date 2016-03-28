@@ -1,0 +1,88 @@
+#!/bin/bash
+
+source "$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"/menu
+
+cd() {
+  if [[ $1 == '-s' ]] ; then
+    # skip all options
+    while [[ $1 == -* ]] ; do
+      shift
+    done
+    
+    local pos=$(dirs -l -p | grep -En ^"${1%/}"/?$ | head -1 | grep -Eo '^[^:]+')
+    if [[ -z "$pos" ]] ; then
+      pushd "$1" > /dev/null
+    else
+      pushd +$(($pos - 1)) > /dev/null
+    fi
+  else
+    builtin cd "$@"
+  fi
+}
+
+cdm() {
+  local sel_idx
+  local options=( $(dirs -p | awk '{print ++idx ":" $1}') )
+  menu options[@] sel_idx
+  pushd +$((sel_idx-1)) > /dev/null
+}
+
+cdu() {
+  local NUM=$1
+  shift
+
+  echo "$PWD"
+  while [[ $NUM -gt 0 ]] ; do
+    cd "$@" ..
+    let NUM--
+  done
+  echo "$PWD"
+}
+
+cdut() {
+  local start_dir=$PWD
+  echo $start_dir
+
+  while ! [[ "${PWD##*/}" =~ "$1" ]] && [[ "$PWD" != "/" ]] ; do
+    echo $PWD
+    cd ..
+  done
+
+  local end_dir=$PWD
+  echo $end_dir
+  
+  # go back and forth so that 'cd -' returns to the prev location
+  cd $start_dir ; cd $end_dir
+}
+
+cddt() {
+  local dir=$(find . -name *"$1"* -print -quit)
+
+  if ! [[ -d "$dir" ]] ; then
+    echo "Cannot find any directory matching the name"
+  else
+    echo "$dir"
+    cd "$dir"
+    echo "$PWD"
+  fi
+}
+
+mkdir() {
+  local opts=''
+  local enter=false
+
+  local op=$1
+  while [[ $op == -* ]] ; do
+   case $op in
+      --*) opts="$opts $op" ; shift ; op=$1 ;;
+      -) shift; op=$1 ;;
+      -e*) enter=true ; op="-${op:2}" ;;
+      -*) opts="$opts -${op:1:1}" ; op="-${op:2}" ;;
+    esac
+  done
+
+  /bin/mkdir $opts "$1"
+  if [[ $? -eq 0 ]] && $enter ; then 
+    builtin cd "$1"
+  fi
+}
