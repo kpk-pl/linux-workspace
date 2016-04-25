@@ -1,4 +1,15 @@
 vim nerdcommenter
 vim youcompleteme with easy installation script
 
+https://github.com/gilsondev/searchtasks.vim
+https://github.com/mbbill/undotree
+https://majutsushi.github.io/tagbar/
+https://github.com/Shougo/neocomplete.vim
+https://github.com/vim-scripts/YankRing.vim
+https://github.com/tpope/vim-fugitive
+https://github.com/jistr/vim-nerdtree-tabs
+
+conditional enable you complete me or neocomplete
+
+
 nested repos fix
