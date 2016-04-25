@@ -3,6 +3,14 @@ syntax enable
 "filetype plugin indent on
 filetype plugin on
 
+" Enable sourcing .vimrc from project directories
+set exrc
+set secure
+
+" Mark linex exceeding column width
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
 " TAB is 4 spaces, change existing
 set tabstop=4
 set softtabstop=4
@@ -11,6 +19,8 @@ set expandtab
 
 " highlight search results
 set hlsearch
+
+nnoremap <F5> :buffers<CR>:buffer<Space>
 
 set mouse=a
 set number
@@ -23,12 +33,20 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+"CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll|bin)$',
+    \ }
 
 "NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"NERDCommenter
+let mapleader=","
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -41,6 +59,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 "Now infect with plugins
+let g:pathogen_disabled = []
 execute pathogen#infect()
 
 colorscheme valloric 
