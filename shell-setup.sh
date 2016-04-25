@@ -11,8 +11,10 @@ read -n1 -p "Erase previous install? [Y/n]" ans ; echo
 [[ "$ans" == Y ]] && rm -rf $SOURCE_DIR/* $PATH_DIR/*
 
 for s in shell/source/* ; do
-    read -n1 -p "Source ${s##*/}? [Y/n]" ans ; echo
-    [[ "$ans" == Y ]] && cp "$s" $SOURCE_DIR 
+    if [[ -f "$s" ]] ; then
+        read -n1 -p "Source ${s##*/}? [Y/n]" ans ; echo
+        [[ "$ans" == Y ]] && cp "$s" $SOURCE_DIR 
+    fi
 done
 
 for p in shell/path/* ; do
