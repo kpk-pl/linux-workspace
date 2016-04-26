@@ -10,5 +10,9 @@ https://github.com/jistr/vim-nerdtree-tabs
 
 conditional enable you complete me or neocomplete
 
+configure ag
+https://github.com/rking/ag.vim
+https://github.com/Chun-Yang/vim-action-ag
+
 
 nested repos fix
