@@ -8,8 +8,10 @@ set exrc
 set secure
 
 " Mark linex exceeding column width
-set colorcolumn=110
-highlight ColorColumn ctermbg=darkgray
+if exists('+colorcolumn')
+    set colorcolumn=110
+    highlight ColorColumn ctermbg=darkgray
+endif
 
 " TAB is 4 spaces, change existing
 set tabstop=4
