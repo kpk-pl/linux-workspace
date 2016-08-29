@@ -7,6 +7,7 @@ https://github.com/Shougo/neocomplete.vim
 https://github.com/vim-scripts/YankRing.vim
 https://github.com/tpope/vim-fugitive
 https://github.com/jistr/vim-nerdtree-tabs
+https://andrew.stwrt.ca/posts/vim-ctags
 
 conditional enable you complete me or neocomplete
 
