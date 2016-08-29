@@ -22,6 +22,11 @@ for p in shell/path/* ; do
     [[ "$ans" == Y ]] && cp "$p" $PATH_DIR
 done
 
+for script in shell/externals/* ; do
+    read -n1 -p "Execute ${script##*/} from externals [Y/n]" ans ; echo
+    [[ "$ans" == Y ]] && ./$script
+done
+
 grep -q .scripts/sourcedInBashrc ~/.bashrc || \
     echo 'for f in '"$SOURCE_DIR"'/*; do source $f; done' >> ~/.bashrc
 
