@@ -7,7 +7,7 @@ filetype plugin indent on
 set exrc
 set secure
 
-" Mark linex exceeding column width
+" Mark lines exceeding column width
 if exists('+colorcolumn')
     set colorcolumn=110
     highlight ColorColumn ctermbg=darkgray
@@ -26,7 +26,9 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F2> :UndotreeToggle<CR>
 nnoremap <F3> :UndotreeFocus<CR>
 
-set mouse=a
+if has('mouse')
+    set mouse=a
+endif
 set number
 set helplang=en
 set history=50
