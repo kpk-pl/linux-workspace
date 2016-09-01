@@ -73,13 +73,13 @@ endif
 let g:undotree_WindowLayout = 3 
 let g:undotree_SetFocusWhenToggle = 1
 
-"ack
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
 
 "Now infect with plugins
 let g:pathogen_disabled = []
+if !executable('ctags')
+    let g:pathogen_disabled = g:pathogen_disabled + ['taglist']
+endif
+
 execute pathogen#infect()
 
 colorscheme valloric 

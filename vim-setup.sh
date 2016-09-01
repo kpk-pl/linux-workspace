@@ -9,3 +9,6 @@
 ln -s "$PWD/vim/vim" ~/.vim
 ln -s "$PWD/vim/vimrc" ~/.vimrc
 
+#vim -c 'execute pathogen#helptags() | q'
+vim -c 'Helptags | g'
+

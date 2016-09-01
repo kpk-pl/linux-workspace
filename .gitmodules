@@ -19,6 +19,30 @@
 [submodule "vim/vim/bundle/undotree"]
 	path = vim/vim/bundle/undotree
 	url = https://github.com/mbbill/undotree.git
-[submodule "vim/vim/bundle/ack.vim"]
-	path = vim/vim/bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/vim/bundle/xmledit"]
+	path = vim/vim/bundle/xmledit
+	url = https://github.com/sukima/xmledit.git
+[submodule "vim/vim/bundle/vim-polyglot"]
+	path = vim/vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vim/vim/bundle/vim-fugitive"]
+	path = vim/vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/vim/bundle/vim-easygrep"]
+	path = vim/vim/bundle/vim-easygrep
+	url = https://github.com/dkprice/vim-easygrep.git
+[submodule "vim/vim/bundle/taglist.vim"]
+	path = vim/vim/bundle/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/vim/bundle/tabular"]
+	path = vim/vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/vim/bundle/lightline.vim"]
+	path = vim/vim/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vim/vim/bundle/gitv"]
+	path = vim/vim/bundle/gitv
+	url = https://github.com/gregsexton/gitv.git
+[submodule "vim/vim/bundle/bufexplorer"]
+	path = vim/vim/bundle/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
