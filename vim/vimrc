@@ -22,15 +22,18 @@ set expandtab
 " highlight search results
 set hlsearch
 
-nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <F2> :UndotreeToggle<CR>
-nnoremap <F3> :UndotreeFocus<CR>
-"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-""nnoremap <F6> :YcmShowDetailedDiagnostic<CR>
-"nnoremap <C-F6> :YcmDiags<CR>
-"nnoremap <F7> :YcmCompleter GetType<CR>
-"nnoremap <C-F7> :YcmCompleter GetParent<CR>
-"nnoremap <C-S-F7> :YcmCompleter GetDoc<CR>
+let mapleader=","
+
+nnoremap <F10> :buffers<CR>:buffer<Space>
+"nnoremap <F2> :UndotreeToggle<CR>
+"nnoremap <F3> :UndotreeFocus<CR>
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <F6> :YcmShowDetailedDiagnostic<CR>
+nnoremap <C-F6> :YcmDiags<CR>
+nnoremap <leader>yt :YcmCompleter GetType<CR>
+nnoremap <leader>yp :YcmCompleter GetParent<CR>
+nnoremap <leader>yd :YcmCompleter GetDoc<CR>
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
 
 if has('mouse')
     set mouse=a
@@ -43,6 +46,10 @@ set history=50
 "set t_Co=256
 "if &term =~ '256color'
 "  set t_ut=
+"endif
+
+"if !has('gui_running')
+"  set t_Co=256
 "endif
 
 if !empty($CONEMUBUILD)
@@ -64,9 +71,8 @@ let g:ctrlp_custom_ignore = {
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-"NERDCommenter
-let mapleader=","
+" Ctrl-n moves focus to NERDTree
+map <silent> <C-n> :NERDTreeFocus<CR> 
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -88,13 +94,17 @@ endif
 let g:undotree_WindowLayout = 3 
 let g:undotree_SetFocusWhenToggle = 1
 
+"Easy grep
+let g:EasyGrepCommand = 1
+let g:EasyGrepRoot = "cwd"
+
 "YCM
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_error_symbol = '»'
 let g:ycm_warning_symbol = '»'
-let g:ycm_add_preview_to_completeopt = 1                                                                                
-let g:ycm_autoclose_preview_window_after_insertion = 1                                                                  
-let g:ycm_server_python_interpreter = '/usr/bin/python'                                                                 
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_server_python_interpreter = '/usr/bin/python'
 
 "Fswitch
 "au! BufEnter *.C let b:fswitchdst = 'h,hpp,H'
@@ -110,7 +120,7 @@ let g:ycm_server_python_interpreter = '/usr/bin/python'
 "nmap <silent> <Leader>oJ :FSSplitBelow<CR>
 
 "Now infect with plugins
-let g:pathogen_disabled = ['YouCompleteMe']
+let g:pathogen_disabled = ['YouCompleteMe', 'taglist', 'vim-fugitive', 'gitv']
 if !executable('ctags')
     let g:pathogen_disabled = g:pathogen_disabled + ['taglist']
 endif

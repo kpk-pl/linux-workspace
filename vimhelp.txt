@@ -1,0 +1,66 @@
+bufexplorer
+syntastic
+tabular
+undotree
+vim-polyglot
+xmledit
+YouCompleteMe
+
+    <<< Vim >>>                    <<< Editing >>>
+,   - <> leader                 dd - delete line (d2d)
+:n  - go to nth line            dw - delete word (d2w)
+:%s/what/to/gci - sed           x  - delete char
+    - % - all lines             D  - delete from cur to EOL
+    - c - confirmation          o  - insert line below (O above)
+    - i - case insensitive      p  - paste after (P before)
+.   - repeat last cmd           r<ch> - replace char 
+:qa - quit all                  u  - undo (U all in line)
+:help - get help (:Helptags)    ^R - redo                       
+
+                   <<< Navigation >>>         
+:ls  - list open buffers        ^  - go to beg of text 
+:bn  - switch to nth buffer     $  - go to EOL
+F10  - list buffers and open    gg - go to BOF 
+:tabclose - close tab           G  - go to EOF
+:tabs - list all tabs           nG - go to nth line
+:tab help - get help            *  - next occ of word 
+^W V - Vsplit                   #  - prev occ of word
+^W S - Hsplit                   ]] - nect section ([[ prev)
+/text - search text             {  - 1st col 
+  - next(n)   prev(N)           z. - center scroll
+  - repeat(/) backward(?)    
+
+    <<< YouCompleteMe >>>
+F5   - recompile
+F6   - show diagnostic
+^F6  - small diag
+<>yt - get type
+<>yp - get parent
+<>yd - get doc
+<>yg - go to
+
+    <<< Ctrl-P >>>                  <<< Easygrep >>>    
+^D - filename search tgl        <>vv - word under cur
+^R - regex tgl                  <>vV - word under cur, match whole
+^T - open new tab               <>vr - global search and replace
+^V - open new Vsplit            <>vo - set files to search in
+^X - open new Hsplit            <>vy* - tgl options
+^P - prev                       :Grep [arg]
+^N - next                       :Replace [target] [replace]
+^Z - mark tgl                   :ReplaceUndo
+^O - open all                   :GrepOptions :GrepProgram
+
+    <<< NerdTree >>>                  <<< NerdCommenter >>>
+t    - open new tab (T silently)  <>cc - comment line
+[g]i - open new Hsplit            <>cn - force nesting comment line
+[g]s - open new Vsplit            <>c<Space> - toogle
+I    - toggle hidden files        <>cs - comment sexily
+m    - menu                       <>cy - yank and cc
+R    - refresh                    <>ci - toggle individually
+p    - go to parent               <>c$ - comment from cur to EOL
+P    - go to root                 <>cA - start comment at EOL
+go   - preview                    <>cu - uncomment                    
+?    - quick help
+^n   - focus
+
+

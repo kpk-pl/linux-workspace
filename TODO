@@ -10,5 +10,7 @@ https://andrew.stwrt.ca/posts/vim-ctags
 OMNI completion
 
 lh-dev lh-tags lh-vim-lib for SMART C++ and other code assistance
+Read lightline github page and perform instructions for advandec users
+https://github.com/itchyny/lightline.vim
 
 conditional enable you complete me or neocomplete
