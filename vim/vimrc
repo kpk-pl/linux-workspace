@@ -25,6 +25,12 @@ set hlsearch
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F2> :UndotreeToggle<CR>
 nnoremap <F3> :UndotreeFocus<CR>
+"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+""nnoremap <F6> :YcmShowDetailedDiagnostic<CR>
+"nnoremap <C-F6> :YcmDiags<CR>
+"nnoremap <F7> :YcmCompleter GetType<CR>
+"nnoremap <C-F7> :YcmCompleter GetParent<CR>
+"nnoremap <C-S-F7> :YcmCompleter GetDoc<CR>
 
 if has('mouse')
     set mouse=a
@@ -34,9 +40,17 @@ set helplang=en
 set history=50
 "set cursorline
 
-set t_Co=256
-if &term =~ '256color'
-  set t_ut=
+"set t_Co=256
+"if &term =~ '256color'
+"  set t_ut=
+"endif
+
+if !empty($CONEMUBUILD)
+    set term=pcansi
+    set t_Co=256
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
+    set bs=indent,eol,start
 endif
 
 "CtrlP
@@ -63,6 +77,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_remove_include_errors = 1
 
 "undotree
 if has("persistent_undo")
@@ -73,9 +88,29 @@ endif
 let g:undotree_WindowLayout = 3 
 let g:undotree_SetFocusWhenToggle = 1
 
+"YCM
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_error_symbol = '»'
+let g:ycm_warning_symbol = '»'
+let g:ycm_add_preview_to_completeopt = 1                                                                                
+let g:ycm_autoclose_preview_window_after_insertion = 1                                                                  
+let g:ycm_server_python_interpreter = '/usr/bin/python'                                                                 
+
+"Fswitch
+"au! BufEnter *.C let b:fswitchdst = 'h,hpp,H'
+"au! BufEnter *.h let b:fswitchdst = 'C,c,cpp'
+"nmap <silent> <Leader>oo :FSHere<CR>
+"nmap <silent> <Leader>ol :FSRight<CR>
+"nmap <silent> <Leader>oh :FSLeft<CR>
+"nmap <silent> <Leader>ok :FSAbove<CR>
+"nmap <silent> <Leader>oj :FSBelow<CR>
+"nmap <silent> <Leader>oL :FSSplitRight<CR>
+"nmap <silent> <Leader>oH :FSSplitLeft<CR>
+"nmap <silent> <Leader>oK :FSSplitAbove<CR>
+"nmap <silent> <Leader>oJ :FSSplitBelow<CR>
 
 "Now infect with plugins
-let g:pathogen_disabled = []
+let g:pathogen_disabled = ['YouCompleteMe']
 if !executable('ctags')
     let g:pathogen_disabled = g:pathogen_disabled + ['taglist']
 endif
