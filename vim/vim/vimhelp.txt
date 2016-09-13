@@ -19,16 +19,18 @@ YouCompleteMe
 
                    <<< Navigation >>>         
 :ls  - list open buffers        ^  - go to beg of text 
-:bn  - switch to nth buffer     $  - go to EOL
-F10  - list buffers and open    gg - go to BOF 
-:tabclose - close tab           G  - go to EOF
-:tabs - list all tabs           nG - go to nth line
-:tab help - get help            *  - next occ of word 
-^W V - Vsplit                   #  - prev occ of word
-^W S - Hsplit                   ]] - nect section ([[ prev)
-/text - search text             {  - 1st col 
-  - next(n)   prev(N)           z. - center scroll
-  - repeat(/) backward(?)    
+:bN  - switch to Nth buffer     $  - go to EOL
+:sbN - split and open Nth buff  gg - go to BOF              
+:bad f - add f to buff list     G  - go to EOF
+:bdN - delete Nth buffer        nG - go to nth line
+:sp f - open f in Hsplit        *  - next occ of word 
+:vsp f - open f in Vsplit       #  - prev occ of word
+F10  - list buffers and open    ]] - nect section ([[ prev)
+:tabclose - close tab           {  - 1st col 
+:tabs - list all tabs           z. - center scroll          
+:tab help - get help            /text - search text                  
+^W V - Vsplit                     - next(n)   prev(N)     
+^W S - Hsplit                     - repeat(/) backward(?) 
 
     <<< YouCompleteMe >>>
 F5   - recompile

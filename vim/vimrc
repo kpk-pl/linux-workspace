@@ -24,16 +24,16 @@ set hlsearch
 
 let mapleader=","
 
+function! OpenHelpFile()
+    if bufwinnr("vimhelp.txt") == -1
+        :vsp ~/.vim/vimhelp.txt
+    endif
+endfunction
+nnoremap <F1> :call OpenHelpFile()<CR>
+
 nnoremap <F10> :buffers<CR>:buffer<Space>
 "nnoremap <F2> :UndotreeToggle<CR>
 "nnoremap <F3> :UndotreeFocus<CR>
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <F6> :YcmShowDetailedDiagnostic<CR>
-nnoremap <C-F6> :YcmDiags<CR>
-nnoremap <leader>yt :YcmCompleter GetType<CR>
-nnoremap <leader>yp :YcmCompleter GetParent<CR>
-nnoremap <leader>yd :YcmCompleter GetDoc<CR>
-nnoremap <leader>yg :YcmCompleter GoTo<CR>
 
 if has('mouse')
     set mouse=a
@@ -105,6 +105,13 @@ let g:ycm_warning_symbol = '»'
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_server_python_interpreter = '/usr/bin/python'
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <F6> :YcmShowDetailedDiagnostic<CR>
+nnoremap <C-F6> :YcmDiags<CR>
+nnoremap <leader>yt :YcmCompleter GetType<CR>
+nnoremap <leader>yp :YcmCompleter GetParent<CR>
+nnoremap <leader>yd :YcmCompleter GetDoc<CR>
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
 
 "Fswitch
 "au! BufEnter *.C let b:fswitchdst = 'h,hpp,H'
@@ -120,7 +127,7 @@ let g:ycm_server_python_interpreter = '/usr/bin/python'
 "nmap <silent> <Leader>oJ :FSSplitBelow<CR>
 
 "Now infect with plugins
-let g:pathogen_disabled = ['YouCompleteMe', 'taglist', 'vim-fugitive', 'gitv']
+let g:pathogen_disabled = ['taglist', 'vim-fugitive', 'gitv']
 if !executable('ctags')
     let g:pathogen_disabled = g:pathogen_disabled + ['taglist']
 endif
