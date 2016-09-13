@@ -32,6 +32,10 @@ endfunction
 nnoremap <F1> :call OpenHelpFile()<CR>
 
 nnoremap <F10> :buffers<CR>:buffer<Space>
+"back(F11), forward(Ctrl+F11), last(Shift+F11)
+nnoremap <F11> :bp<CR>
+nnoremap <C-F11> :bn<CR>
+nnoremap <S-F11> :e#<CR>
 "nnoremap <F2> :UndotreeToggle<CR>
 "nnoremap <F3> :UndotreeFocus<CR>
 

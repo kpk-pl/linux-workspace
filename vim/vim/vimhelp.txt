@@ -6,33 +6,29 @@ vim-polyglot
 xmledit
 YouCompleteMe
 
-    <<< Vim >>>                    <<< Editing >>>
-,   - <> leader                 dd - delete line (d2d)
-:n  - go to nth line            dw - delete word (d2w)
-:%s/what/to/gci - sed           x  - delete char
-    - % - all lines             D  - delete from cur to EOL
-    - c - confirmation          o  - insert line below (O above)
-    - i - case insensitive      p  - paste after (P before)
-.   - repeat last cmd           r<ch> - replace char 
-:qa - quit all                  u  - undo (U all in line)
-:help - get help (:Helptags)    ^R - redo                       
+   <<< Vim >>>                 
+,   - <> leader                 
+:n  - go to nth line            
+:%s/what/to/gci - sed           
+    - % - all lines             
+    - c - confirmation          
+    - i - case insensitive      
+.   - repeat last cmd           
+:qa - quit all                  
+:help - get help (:Helptags)    
 
-                   <<< Navigation >>>         
-:ls  - list open buffers        ^  - go to beg of text 
-:bN  - switch to Nth buffer     $  - go to EOL
-:sbN - split and open Nth buff  gg - go to BOF              
-:bad f - add f to buff list     G  - go to EOF
-:bdN - delete Nth buffer        nG - go to nth line
-:sp f - open f in Hsplit        *  - next occ of word 
-:vsp f - open f in Vsplit       #  - prev occ of word
-F10  - list buffers and open    ]] - nect section ([[ prev)
-:tabclose - close tab           {  - 1st col 
-:tabs - list all tabs           z. - center scroll          
-:tab help - get help            /text - search text                  
-^W V - Vsplit                     - next(n)   prev(N)     
-^W S - Hsplit                     - repeat(/) backward(?) 
+   <<< Editing >>>
+dd - delete line (d2d)
+dw - delete word (d2w)
+x  - delete char
+D  - delete from cur to EOL
+o  - insert line below (O above)
+p  - paste after (P before)
+r<ch> - replace char 
+u  - undo (U all in line)
+^R - redo                       
 
-    <<< YouCompleteMe >>>
+   <<< YouCompleteMe >>>
 F5   - recompile
 F6   - show diagnostic
 ^F6  - small diag
@@ -41,27 +37,82 @@ F6   - show diagnostic
 <>yd - get doc
 <>yg - go to
 
-    <<< Ctrl-P >>>                  <<< Easygrep >>>    
-^D - filename search tgl        <>vv - word under cur
-^R - regex tgl                  <>vV - word under cur, match whole
-^T - open new tab               <>vr - global search and replace
-^V - open new Vsplit            <>vo - set files to search in
-^X - open new Hsplit            <>vy* - tgl options
-^P - prev                       :Grep [arg]
-^N - next                       :Replace [target] [replace]
-^Z - mark tgl                   :ReplaceUndo
-^O - open all                   :GrepOptions :GrepProgram
+   <<< Buffers/Tabs >>>         
+:ls    - list open buffers      
+:bN    - switch to Nth buffer   
+:sbN   - split and open Nth buff
+:bad f - add f to buff list   
+:bdN   - delete Nth buffer      
+:sp f  - open f in Hsplit      
+:vsp f - open f in Vsplit     
+F10    - list buffers and open  
+F11    - prev buffer
+C-F11  - next buffer
+S-F11  - last buffer
+:tabclose - close tab         
+:tabs  - list all tabs         
+:tab help - get help          
+^W V   - Vsplit                 
+^W S   - Hsplit                 
 
-    <<< NerdTree >>>                  <<< NerdCommenter >>>
-t    - open new tab (T silently)  <>cc - comment line
-[g]i - open new Hsplit            <>cn - force nesting comment line
-[g]s - open new Vsplit            <>c<Space> - toogle
-I    - toggle hidden files        <>cs - comment sexily
-m    - menu                       <>cy - yank and cc
-R    - refresh                    <>ci - toggle individually
-p    - go to parent               <>c$ - comment from cur to EOL
-P    - go to root                 <>cA - start comment at EOL
-go   - preview                    <>cu - uncomment                    
+   <<< Navigation >>>
+^  - go to beg of text 
+$  - go to EOL
+gg - go to BOF              
+G  - go to EOF
+nG - go to nth line
+*  - next occ of word 
+#  - prev occ of word
+]] - nect section ([[ prev)
+{  - 1st col 
+z. - center scroll          
+/text - search text                  
+  - next(n)   prev(N)     
+  - repeat(/) backward(?) 
+
+   <<< Easygrep >>>    
+<>vv - word under cur
+<>vV - word under cur, match whole
+<>vr - global search and replace
+<>vo - set files to search in
+<>vy* - tgl options
+:Grep [arg]
+:Replace [target] [replace]
+:ReplaceUndo
+:GrepOptions :GrepProgram           
+
+   <<< NerdCommenter >>>
+<>cc - comment line
+<>cn - force nesting comment line
+<>c<Space> - toogle
+<>cs - comment sexily
+<>cy - yank and cc
+<>ci - toggle individually
+<>c$ - comment from cur to EOL
+<>cA - start comment at EOL
+<>cu - uncomment                 
+
+   <<< Ctrl-P >>>              
+^D - filename search tgl        
+^R - regex tgl                  
+^T - open new tab               
+^V - open new Vsplit            
+^X - open new Hsplit            
+^P - prev                       
+^N - next                       
+^Z - mark tgl                   
+^O - open all                    
+
+   <<< NerdTree >>>              
+t    - open new tab (T silently)  
+[g]i - open new Hsplit            
+[g]s - open new Vsplit            
+I    - toggle hidden files        
+m    - menu                       
+R    - refresh                    
+p    - go to parent               
+P    - go to root                 
+go   - preview                       
 ?    - quick help
 ^n   - focus
 
