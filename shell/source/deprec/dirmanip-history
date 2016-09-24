@@ -27,46 +27,6 @@ cdm() {
   pushd +$((sel_idx-1)) > /dev/null
 }
 
-cdu() {
-  local NUM=$1
-  shift
-
-  echo "$PWD"
-  while [[ $NUM -gt 0 ]] ; do
-    cd "$@" ..
-    let NUM--
-  done
-  echo "$PWD"
-}
-
-cdut() {
-  local start_dir=$PWD
-  echo $start_dir
-
-  while ! [[ "${PWD##*/}" =~ "$1" ]] && [[ "$PWD" != "/" ]] ; do
-    echo $PWD
-    cd ..
-  done
-
-  local end_dir=$PWD
-  echo $end_dir
-  
-  # go back and forth so that 'cd -' returns to the prev location
-  cd $start_dir ; cd $end_dir
-}
-
-cddt() {
-  local dir=$(find . -name *"$1"* -print -quit)
-
-  if ! [[ -d "$dir" ]] ; then
-    echo "Cannot find any directory matching the name"
-  else
-    echo "$dir"
-    cd "$dir"
-    echo "$PWD"
-  fi
-}
-
 mkdir() {
   local opts=''
   local enter=false
