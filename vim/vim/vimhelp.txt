@@ -4,7 +4,6 @@ tabular
 undotree
 vim-polyglot
 xmledit
-YouCompleteMe
 
    <<< Vim >>>
 ,   - <> leader
@@ -22,6 +21,8 @@ dd - delete line (d2d)
 dw - delete word (d2w)
 x  - delete char
 D  - delete from cur to EOL
+df<ch> - delete to next <ch> including
+dt<ch> - delete up to next <ch> excluding
 o  - insert line below (O above)
 p  - paste after (P before)
 r<ch> - replace char
@@ -49,11 +50,12 @@ F10    - list buffers and open
 F11    - prev buffer
 C-F11  - next buffer
 S-F11  - last buffer
-:tabclose - close tab
-:tabs  - list all tabs
-:tab help - get help
-^W V   - Vsplit
-^W S   - Hsplit
+:only  - close all but one
+:tabclose - close tab         
+:tabs  - list all tabs         
+:tab help - get help          
+^W V   - Vsplit                 
+^W S   - Hsplit                 
 
    <<< Navigation >>>
 ^  - go to beg of text
@@ -73,6 +75,8 @@ z. - center scroll
    <<< Easygrep >>>
 <>vv - word under cur
 <>vV - word under cur, match whole
+:cn  - go to next hit, :cp (prev)
+:ccl - close quickfix
 <>vr - global search and replace
 <>vo - set files to search in
 <>vy* - tgl options
@@ -81,7 +85,7 @@ z. - center scroll
 :ReplaceUndo
 :GrepOptions :GrepProgram
 
-   <<< NerdCommenter >>>
+   <<< NERDCommenter >>>
 <>cc - comment line
 <>cn - force nesting comment line
 <>c<Space> - toogle
@@ -103,16 +107,17 @@ z. - center scroll
 ^Z - mark tgl
 ^O - open all
 
-   <<< NerdTree >>>
-t    - open new tab (T silently)
-[g]i - open new Hsplit
-[g]s - open new Vsplit
-I    - toggle hidden files
-m    - menu
-R    - refresh
-p    - go to parent
-P    - go to root
-go   - preview
+   <<< NERDTree >>>              
+t    - open new tab (T silently)  
+[g]i - open new Hsplit            
+[g]s - open new Vsplit            
+I    - toggle hidden files        
+m    - menu                       
+R    - refresh                    
+p    - go to parent               
+P    - go to root                 
+R    - set new root
+go   - preview                       
 ?    - quick help
 ^n   - focus
 

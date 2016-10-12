@@ -26,10 +26,10 @@ endfunction
 nnoremap <F1> :call OpenHelpFile()<CR>
 
 nnoremap <F10> :buffers<CR>:buffer<Space>
-"back(F11), forward(Ctrl+F11), last(Shift+F11)
-nnoremap <F11> :bp<CR>
+"last(F11), forward(Ctrl+F11), back(Shift+F11)
+nnoremap <S-F11> :bp<CR>
 nnoremap <C-F11> :bn<CR>
-nnoremap <S-F11> :e#<CR>
+nnoremap <F11> :e#<CR>
 "nnoremap <F2> :UndotreeToggle<CR>
 "nnoremap <F3> :UndotreeFocus<CR>
 
@@ -39,7 +39,8 @@ endif
 set number
 set helplang=en
 set history=50
-"set cursorline
+set cursorline
+set backspace=2
 
 "set t_Co=256
 "if &term =~ '256color'
@@ -93,8 +94,8 @@ let g:undotree_WindowLayout = 3
 let g:undotree_SetFocusWhenToggle = 1
 
 "Easy grep
-let g:EasyGrepCommand = 1
-let g:EasyGrepRoot = "cwd"
+let g:EasyGrepCommand = "ag"
+let g:EasyGrepRoot = "repository"
 
 "YCM
 let g:ycm_confirm_extra_conf = 0
