@@ -32,6 +32,8 @@ nnoremap <C-F11> :bn<CR>
 nnoremap <F11> :e#<CR>
 "nnoremap <F2> :UndotreeToggle<CR>
 "nnoremap <F3> :UndotreeFocus<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 
 if has('mouse')
     set mouse=a

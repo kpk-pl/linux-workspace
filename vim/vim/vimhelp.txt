@@ -38,9 +38,9 @@ F6   - show diagnostic
 <>yd - get doc
 <>yg - go to
 
-   <<< Buffers/Tabs >>>
-:ls    - list open buffers
-:bN    - switch to Nth buffer
+   <<< Buffers >>>         
+:ls    - list open buffers      
+:bN    - switch to Nth buffer   
 :sbN   - split and open Nth buff
 :bad f - add f to buff list
 :bdN   - delete Nth buffer
@@ -50,12 +50,17 @@ F10    - list buffers and open
 F11    - prev buffer
 C-F11  - next buffer
 S-F11  - last buffer
-:only  - close all but one
-:tabclose - close tab         
-:tabs  - list all tabs         
-:tab help - get help          
+:only  - close all but one buffer
 ^W V   - Vsplit                 
 ^W S   - Hsplit                 
+
+   <<< Tabs >>>
+:tab ball - open each buf in new tab
+:tabclose - close tab
+:tabonly - close all but one tab
+:tabs  - list all tabs
+:tab help - get help      
+
 
    <<< Navigation >>>
 ^  - go to beg of text
