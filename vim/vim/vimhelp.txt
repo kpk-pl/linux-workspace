@@ -6,16 +6,16 @@ vim-polyglot
 xmledit
 YouCompleteMe
 
-   <<< Vim >>>                 
-,   - <> leader                 
-:n  - go to nth line            
-:%s/what/to/gci - sed           
-    - % - all lines             
-    - c - confirmation          
-    - i - case insensitive      
-.   - repeat last cmd           
-:qa - quit all                  
-:help - get help (:Helptags)    
+   <<< Vim >>>
+,   - <> leader
+:n  - go to nth line
+:%s/what/to/gci - sed
+    - % - all lines
+    - c - confirmation
+    - i - case insensitive
+.   - repeat last cmd
+:qa - quit all
+:help - get help (:Helptags)
 
    <<< Editing >>>
 dd - delete line (d2d)
@@ -24,9 +24,9 @@ x  - delete char
 D  - delete from cur to EOL
 o  - insert line below (O above)
 p  - paste after (P before)
-r<ch> - replace char 
+r<ch> - replace char
 u  - undo (U all in line)
-^R - redo                       
+^R - redo
 
    <<< YouCompleteMe >>>
 F5   - recompile
@@ -37,40 +37,40 @@ F6   - show diagnostic
 <>yd - get doc
 <>yg - go to
 
-   <<< Buffers/Tabs >>>         
-:ls    - list open buffers      
-:bN    - switch to Nth buffer   
+   <<< Buffers/Tabs >>>
+:ls    - list open buffers
+:bN    - switch to Nth buffer
 :sbN   - split and open Nth buff
-:bad f - add f to buff list   
-:bdN   - delete Nth buffer      
-:sp f  - open f in Hsplit      
-:vsp f - open f in Vsplit     
-F10    - list buffers and open  
+:bad f - add f to buff list
+:bdN   - delete Nth buffer
+:sp f  - open f in Hsplit
+:vsp f - open f in Vsplit
+F10    - list buffers and open
 F11    - prev buffer
 C-F11  - next buffer
 S-F11  - last buffer
-:tabclose - close tab         
-:tabs  - list all tabs         
-:tab help - get help          
-^W V   - Vsplit                 
-^W S   - Hsplit                 
+:tabclose - close tab
+:tabs  - list all tabs
+:tab help - get help
+^W V   - Vsplit
+^W S   - Hsplit
 
    <<< Navigation >>>
-^  - go to beg of text 
+^  - go to beg of text
 $  - go to EOL
-gg - go to BOF              
+gg - go to BOF
 G  - go to EOF
 nG - go to nth line
-*  - next occ of word 
+*  - next occ of word
 #  - prev occ of word
 ]] - nect section ([[ prev)
-{  - 1st col 
-z. - center scroll          
-/text - search text                  
-  - next(n)   prev(N)     
-  - repeat(/) backward(?) 
+{  - 1st col
+z. - center scroll
+/text - search text
+  - next(n)   prev(N)
+  - repeat(/) backward(?)
 
-   <<< Easygrep >>>    
+   <<< Easygrep >>>
 <>vv - word under cur
 <>vV - word under cur, match whole
 <>vr - global search and replace
@@ -79,7 +79,7 @@ z. - center scroll
 :Grep [arg]
 :Replace [target] [replace]
 :ReplaceUndo
-:GrepOptions :GrepProgram           
+:GrepOptions :GrepProgram
 
    <<< NerdCommenter >>>
 <>cc - comment line
@@ -90,30 +90,32 @@ z. - center scroll
 <>ci - toggle individually
 <>c$ - comment from cur to EOL
 <>cA - start comment at EOL
-<>cu - uncomment                 
+<>cu - uncomment
 
-   <<< Ctrl-P >>>              
-^D - filename search tgl        
-^R - regex tgl                  
-^T - open new tab               
-^V - open new Vsplit            
-^X - open new Hsplit            
-^P - prev                       
-^N - next                       
-^Z - mark tgl                   
-^O - open all                    
+   <<< Ctrl-P >>>
+^D - filename search tgl
+^R - regex tgl
+^T - open new tab
+^V - open new Vsplit
+^X - open new Hsplit
+^P - prev
+^N - next
+^Z - mark tgl
+^O - open all
 
-   <<< NerdTree >>>              
-t    - open new tab (T silently)  
-[g]i - open new Hsplit            
-[g]s - open new Vsplit            
-I    - toggle hidden files        
-m    - menu                       
-R    - refresh                    
-p    - go to parent               
-P    - go to root                 
-go   - preview                       
+   <<< NerdTree >>>
+t    - open new tab (T silently)
+[g]i - open new Hsplit
+[g]s - open new Vsplit
+I    - toggle hidden files
+m    - menu
+R    - refresh
+p    - go to parent
+P    - go to root
+go   - preview
 ?    - quick help
 ^n   - focus
 
-
+   <<< Whitespace >>>
+:StripWhitespace
+:ToggleWhitespace
