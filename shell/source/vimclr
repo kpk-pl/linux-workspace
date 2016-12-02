@@ -1,0 +1,3 @@
+#!/bin/bash
+
+alias vimclr='find . -name *.swp -exec rm {} \;'

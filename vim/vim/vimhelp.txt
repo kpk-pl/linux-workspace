@@ -5,16 +5,18 @@ undotree
 vim-polyglot
 xmledit
 
-   <<< Vim >>>
-,   - <> leader
-:n  - go to nth line
-:%s/what/to/gci - sed
-    - % - all lines
-    - c - confirmation
-    - i - case insensitive
-.   - repeat last cmd
-:qa - quit all
-:help - get help (:Helptags)
+   <<< Vim >>>                 
+,   - <> leader                 
+:n  - go to nth line            
+:%s/what/to/gci - sed           
+    - % - all lines             
+    - c - confirmation          
+    - i - case insensitive      
+.   - repeat last cmd           
+:qa - quit all                  
+:noh - clear highlight
+:help - get help (:Helptags)    
+*   - search word under cursor
 
    <<< Editing >>>
 dd - delete line (d2d)
@@ -41,12 +43,13 @@ F6   - show diagnostic
    <<< Buffers >>>         
 :ls    - list open buffers      
 :bN    - switch to Nth buffer   
-:sbN   - split and open Nth buff
-:bad f - add f to buff list
-:bdN   - delete Nth buffer
-:sp f  - open f in Hsplit
-:vsp f - open f in Vsplit
-F10    - list buffers and open
+:sbN   - split and open Nth buff horiz
+:vert sb N - split and open Nth vertic
+:bad f - add f to buff list   
+:bdN   - delete Nth buffer      
+:sp f  - open f in Hsplit      
+:vsp f - open f in Vsplit     
+F10    - list buffers and open  
 F11    - prev buffer
 C-F11  - next buffer
 S-F11  - last buffer
