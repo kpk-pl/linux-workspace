@@ -35,6 +35,10 @@ nnoremap <F11> :e#<CR>
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
+"Up/Down arrows with Ctrl move 10 lines at a time
+nnoremap <C-Down> 10j
+nnoremap <C-Up> 10k
+
 if has('mouse')
     set mouse=a
 endif
