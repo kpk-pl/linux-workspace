@@ -14,3 +14,5 @@ Read lightline github page and perform instructions for advandec users
 https://github.com/itchyny/lightline.vim
 
 conditional enable you complete me or neocomplete
+
+YCM: YCM-Generator or automate compile_commands.json

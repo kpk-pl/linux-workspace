@@ -52,3 +52,9 @@
 [submodule "vim/vim/bundle/vim-better-whitespace"]
 	path = vim/vim/bundle/vim-better-whitespace
 	url = git://github.com/ntpeters/vim-better-whitespace.git
+[submodule "vim/rtags/rtags"]
+	path = vim/rtags/rtags
+	url = https://github.com/Andersbakken/rtags.git
+[submodule "vim/vim/bundle/vim-rtags"]
+	path = vim/vim/bundle/vim-rtags
+	url = https://github.com/lyuts/vim-rtags
