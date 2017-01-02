@@ -5,29 +5,40 @@ undotree
 vim-polyglot
 xmledit
 
-   <<< Vim >>>                 
-,   - <> leader                 
-:n  - go to nth line            
-:%s/what/to/gci - sed           
-    - % - all lines             
-    - c - confirmation          
-    - i - case insensitive      
-.   - repeat last cmd           
-:qa - quit all                  
+   <<< Vim >>>
+,   - <> leader
+:n  - go to nth line
+:%s/what/to/gci - sed
+    - g - all lines
+    - c - confirmation
+    - i - case insensitive
+.   - repeat last cmd
+:qa - quit all
 :noh - clear highlight
-:help - get help (:Helptags)    
+:help - get help (:Helptags)
 *   - search word under cursor
+q<ch> - start recording macro
+@<ch> - play macro (@@ - last)
 
    <<< Editing >>>
 dd - delete line (d2d)
-dw - delete word (d2w)
+dw - delete word after cursor (d2w)
+daw - delete whole word
+diw - delete in word / del curr word
+di] - delete inside []
+da] - delete [] and all inside
+dt_ - delete to _ char
+df_ - delete to _ included
 x  - delete char
 D  - delete from cur to EOL
 df<ch> - delete to next <ch> including
 dt<ch> - delete up to next <ch> excluding
+c  - delete and go to insert mode
 o  - insert line below (O above)
 p  - paste after (P before)
 r<ch> - replace char
+y  - yank
+vi" - visually select all inside ""
 u  - undo (U all in line)
 ^R - redo
 
@@ -40,30 +51,29 @@ F6   - show diagnostic
 <>yd - get doc
 <>yg - go to
 
-   <<< Buffers >>>         
-:ls    - list open buffers      
-:bN    - switch to Nth buffer   
+   <<< Buffers >>>
+:ls    - list open buffers
+:bN    - switch to Nth buffer
 :sbN   - split and open Nth buff horiz
 :vert sb N - split and open Nth vertic
-:bad f - add f to buff list   
-:bdN   - delete Nth buffer      
-:sp f  - open f in Hsplit      
-:vsp f - open f in Vsplit     
-F10    - list buffers and open  
+:bad f - add f to buff list
+:bdN   - delete Nth buffer
+:sp f  - open f in Hsplit
+:vsp f - open f in Vsplit
+F10    - list buffers and open
 F11    - prev buffer
 C-F11  - next buffer
 S-F11  - last buffer
 :only  - close all but one buffer
-^W V   - Vsplit                 
-^W S   - Hsplit                 
+^W V   - Vsplit
+^W S   - Hsplit
 
    <<< Tabs >>>
 :tab ball - open each buf in new tab
 :tabclose - close tab
 :tabonly - close all but one tab
 :tabs  - list all tabs
-:tab help - get help      
-
+:tab help - get help
 
    <<< Navigation >>>
 ^  - go to beg of text
@@ -73,12 +83,27 @@ G  - go to EOF
 nG - go to nth line
 *  - next occ of word
 #  - prev occ of word
+w  - go to next word
+e  - go to end of next word
 ]] - nect section ([[ prev)
 {  - 1st col
-z. - center scroll
 /text - search text
   - next(n)   prev(N)
   - repeat(/) backward(?)
+hjkl - left down up right
+z. - center scroll
+^E  - scroll wnd down
+^Y  - scroll wnd up
+^U  - move cur to top of screen
+^D  - move cur to bottom
+HML - move to top/middle/bottom
+
+   <<< Objects/Motions >>>
+w   - word
+a   - all
+i   - in
+t   - till
+f/F - find fwd/bck
 
    <<< Easygrep >>>
 <>vv - word under cur
@@ -115,17 +140,17 @@ z. - center scroll
 ^Z - mark tgl
 ^O - open all
 
-   <<< NERDTree >>>              
-t    - open new tab (T silently)  
-[g]i - open new Hsplit            
-[g]s - open new Vsplit            
-I    - toggle hidden files        
-m    - menu                       
-R    - refresh                    
-p    - go to parent               
-P    - go to root                 
+   <<< NERDTree >>>
+t    - open new tab (T silently)
+[g]i - open new Hsplit
+[g]s - open new Vsplit
+I    - toggle hidden files
+m    - menu
+R    - refresh
+p    - go to parent
+P    - go to root
 R    - set new root
-go   - preview                       
+go   - preview
 ?    - quick help
 ^n   - focus
 
