@@ -103,7 +103,7 @@ let g:undotree_SetFocusWhenToggle = 1
 "Easy grep
 let g:EasyGrepCommand = "ag"
 let g:EasyGrepRoot = "repository"
-let g:EasyGrepFilesToExclude = "*.swp,*~,tags"
+let g:EasyGrepFilesToExclude = "*.swp,*~,tags,compile_commands.json"
 
 "YCM
 let g:ycm_confirm_extra_conf = 0
