@@ -25,6 +25,7 @@ function! OpenHelpFile()
 endfunction
 nnoremap <F1> :call OpenHelpFile()<CR>
 
+nnoremap <F9> :call SourceHeaderJump()<CR>
 nnoremap <F10> :buffers<CR>:buffer<Space>
 "last(F11), forward(Ctrl+F11), back(Shift+F11)
 nnoremap <S-F11> :bp<CR>
