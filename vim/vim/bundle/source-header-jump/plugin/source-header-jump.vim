@@ -1,6 +1,7 @@
 function! SourceHeaderJump()
   let withoutExt = expand('%:r')
   let extension = expand('%:e')
+  let candidates = []
 
   if extension == "h"
     let candidates = [withoutExt.".C", withoutExt.".cpp"]
@@ -25,7 +26,7 @@ function! SourceHeaderJump()
 
   for fileToOpen in candidates
     if filereadable(fileToOpen)
-      execute 'open' fileToOpen
+      execute 'edit' fileToOpen
       return
     endif
   endfor
