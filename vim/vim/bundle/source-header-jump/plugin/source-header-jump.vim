@@ -26,9 +26,16 @@ function! SourceHeaderJump()
 
   for fileToOpen in candidates
     if filereadable(fileToOpen)
-      execute 'edit' fileToOpen
+      let bnr = bufnr(fileToOpen)
+      if bnr > 0
+        silent execute 'buffer' bnr
+      else
+        silent execute 'edit' fileToOpen
+      endif
+
       return
     endif
   endfor
+
   echo "None of the files [".join(candidates, ", ")."] exist"
 endfunction
