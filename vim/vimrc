@@ -147,6 +147,8 @@ endif
 execute pathogen#infect()
 
 colorscheme valloric
+highlight VertSplit cterm=NONE ctermbg=NONE
+highlight CursorLine cterm=NONE
 
 " Mark lines exceeding column width
 if exists('+colorcolumn')
