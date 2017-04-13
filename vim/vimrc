@@ -123,7 +123,7 @@ nnoremap <leader>yg :YcmCompleter GoTo<CR>
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
 
 "Rtags
-"let g:rtagsRcCmd = '/home/krzysztof/Workspace/linux-workspace/vim/rtags/rtags/bin/rc'
+let g:rtagsRcCmd = '/home/krzysztof/Workspace/linux-workspace/vim/rtags/rtags/bin/rc'
 
 "Fswitch
 "au! BufEnter *.C let b:fswitchdst = 'h,hpp,H'
@@ -139,7 +139,7 @@ nnoremap <leader>yf :YcmCompleter FixIt<CR>
 "nmap <silent> <Leader>oJ :FSSplitBelow<CR>
 
 "Now infect with plugins
-let g:pathogen_disabled = ['taglist', 'vim-fugitive', 'gitv', 'vim-rtags']
+let g:pathogen_disabled = ['taglist', 'vim-fugitive', 'gitv']
 if !executable('ctags')
     let g:pathogen_disabled = g:pathogen_disabled + ['taglist']
 endif

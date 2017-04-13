@@ -10,4 +10,4 @@ if ! [[ -d $PROJECT ]] ; then
     exit 1
 fi
 
-rtags/bin/rc -J $PROJECT
+rtags/bin/rc -J $PROJECT 

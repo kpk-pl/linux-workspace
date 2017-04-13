@@ -51,6 +51,22 @@ F6   - show diagnostic
 <>yd - get doc
 <>yg - go to
 
+   <<< Rtags >>>
+<>ri - symbol info
+<>rj - follow location
+<>rJ - follow only declaration
+<>rS - follow open in hsplit
+<>rV - follow open in vsplit
+<>rT - follow open in new tab
+<>rp - jump to parrent
+<>rf - find references
+<>rn - find references by name
+<>rs - find symbols by name
+<>rr - reindex file
+<>rq - rename
+<>rv - find virtuals
+<>rb - jump back
+
    <<< Buffers >>>
 :ls    - list open buffers
 :bN    - switch to Nth buffer
