@@ -40,6 +40,10 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-Down> 10j
 nnoremap <C-Up> 10k
 
+"PageUp/PageDown should move screen and keep current line position
+nnoremap <PageUp> <C-u>zz
+nnoremap <PageDown> <C-d>zz
+
 if has('mouse')
     set mouse=a
 endif
@@ -124,6 +128,10 @@ nnoremap <leader>yf :YcmCompleter FixIt<CR>
 
 "Rtags
 let g:rtagsRcCmd = '/home/krzysztof/Workspace/linux-workspace/vim/rtags/rtags/bin/rc'
+map <silent> <F7>   <leader>rj
+map <silent> <C-F7> <leader>rV
+map <silent> <S-F7> <leader>rT
+map <silent> <F8>   <leader>rb
 
 "Fswitch
 "au! BufEnter *.C let b:fswitchdst = 'h,hpp,H'

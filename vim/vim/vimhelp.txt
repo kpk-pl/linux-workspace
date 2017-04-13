@@ -58,7 +58,7 @@ F6   - show diagnostic
 <>rS - follow open in hsplit
 <>rV - follow open in vsplit
 <>rT - follow open in new tab
-<>rp - jump to parrent
+<>rp - jump to parent
 <>rf - find references
 <>rn - find references by name
 <>rs - find symbols by name
@@ -107,7 +107,7 @@ e  - go to end of next word
   - next(n)   prev(N)
   - repeat(/) backward(?)
 hjkl - left down up right
-z. - center scroll
+z./zz - center scroll
 ^E  - scroll wnd down
 ^Y  - scroll wnd up
 ^U  - move cur to top of screen
