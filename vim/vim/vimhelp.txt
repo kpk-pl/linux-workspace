@@ -101,6 +101,7 @@ nG - go to nth line
 #  - prev occ of word
 w  - go to next word
 e  - go to end of next word
+b  - go to beginning of word
 ]] - nect section ([[ prev)
 {  - 1st col
 /text - search text

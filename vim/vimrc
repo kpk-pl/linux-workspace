@@ -44,6 +44,9 @@ nnoremap <C-Up> 10k
 nnoremap <PageUp> <C-u>zz
 nnoremap <PageDown> <C-d>zz
 
+"Change order of two words (cursor on the second)
+nnoremap <leader>ms dawbPe
+
 if has('mouse')
     set mouse=a
 endif
