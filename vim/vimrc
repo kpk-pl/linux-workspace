@@ -150,9 +150,9 @@ map <silent> <F8>   <leader>rb
 "nmap <silent> <Leader>oJ :FSSplitBelow<CR>
 
 "Now infect with plugins
-let g:pathogen_disabled = ['taglist', 'vim-fugitive', 'gitv']
+let g:pathogen_disabled = ['taglist.vim', 'vim-fugitive', 'gitv']
 if !executable('ctags')
-    let g:pathogen_disabled = g:pathogen_disabled + ['taglist']
+    let g:pathogen_disabled = g:pathogen_disabled + ['taglist.vim']
 endif
 
 execute pathogen#infect()
