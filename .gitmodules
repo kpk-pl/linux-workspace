@@ -58,3 +58,6 @@
 [submodule "vim/vim/bundle/vim-rtags"]
 	path = vim/vim/bundle/vim-rtags
 	url = https://github.com/lyuts/vim-rtags
+[submodule "vim/vim/bundle/vim-argumentative"]
+	path = vim/vim/bundle/vim-argumentative
+	url = https://github.com/PeterRincker/vim-argumentative.git

@@ -91,6 +91,11 @@ S-F11  - last buffer
 :tabs  - list all tabs
 :tab help - get help
 
+   <<< Argumentative >>>
+da, di, - delete function parameter
+[, ],   - move between param bounds
+<, >,   - shift arguments
+
    <<< Navigation >>>
 ^  - go to beg of text
 $  - go to EOL
