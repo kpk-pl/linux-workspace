@@ -7,7 +7,7 @@ filetype plugin indent on
 set exrc
 set secure
 
-" TAB is 4 spaces, change existing
+" TAB is 2 spaces, change existing
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -46,15 +46,20 @@ nnoremap <PageDown> <C-d>zz
 
 "Change order of two words (cursor on the second)
 nnoremap <leader>ms dawbPe
+"C++ include guards (type name of a guard and execute)
+nnoremap <leader>mi yaw^i#ifndef <Esc>o#define <Esc>po<Return><Esc>Go<Return>#endif // <Esc>pkk
 
 if has('mouse')
     set mouse=a
 endif
 set number
 set helplang=en
+set spelllang=en,pt_br
 set history=50
 set cursorline
 set backspace=2
+set noswapfile
+set virtualedit=all  " walk in limbo
 
 "set t_Co=256
 "if &term =~ '256color'
@@ -105,7 +110,7 @@ if has("persistent_undo")
     set undofile
 endif
 "Shop the panel on the right
-let g:undotree_WindowLayout = 3 
+let g:undotree_WindowLayout = 3
 let g:undotree_SetFocusWhenToggle = 1
 
 "Easy grep
@@ -119,14 +124,15 @@ let g:ycm_error_symbol = '»'
 let g:ycm_warning_symbol = '»'
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <F6> :YcmShowDetailedDiagnostic<CR>
 nnoremap <C-F6> :YcmDiags<CR>
 nnoremap <leader>yt :YcmCompleter GetType<CR>
-nnoremap <leader>yp :YcmCompleter GetParent<CR>
-nnoremap <leader>yd :YcmCompleter GetDoc<CR>
 nnoremap <leader>yg :YcmCompleter GoTo<CR>
+nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
+nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
 
 "Rtags
@@ -169,3 +175,4 @@ if exists('+colorcolumn')
 endif
 
 highlight ExtraWhitespace ctermbg=lightyellow
+
