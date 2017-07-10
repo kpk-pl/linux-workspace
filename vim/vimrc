@@ -11,7 +11,21 @@ set secure
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set backspace=2
 set expandtab
+
+if has('mouse')
+    set mouse=a
+endif
+set number
+set helplang=en
+set spelllang=en,pt_br
+set history=50
+set cursorline
+set noswapfile
+set scrolloff=15
+set laststatus=2
+set noshowmode " don't show -- INSERT -- because it is on statusline
 
 " highlight search results
 set hlsearch
@@ -44,22 +58,8 @@ nnoremap <C-Up> 10k
 nnoremap <PageUp> <C-u>zz
 nnoremap <PageDown> <C-d>zz
 
-"Change order of two words (cursor on the second)
-nnoremap <leader>ms dawbPe
 "C++ include guards (type name of a guard and execute)
 nnoremap <leader>mi yaw^i#ifndef <Esc>o#define <Esc>po<Return><Esc>Go<Return>#endif // <Esc>pkk
-
-if has('mouse')
-    set mouse=a
-endif
-set number
-set helplang=en
-set spelllang=en,pt_br
-set history=50
-set cursorline
-set backspace=2
-set noswapfile
-set virtualedit=all  " walk in limbo
 
 "set t_Co=256
 "if &term =~ '256color'
@@ -92,6 +92,17 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Ctrl-n moves focus to NERDTree
 map <silent> <C-n> :NERDTreeFocus<CR>
 let NERDTreeIgnore = ['\.pyc$', 'CMakeFiles$', '\.cmake$']
+let g:NERDTreeIndicatorMapCustom = {
+    \ 'Modified'  : '✹',
+    \ 'Staged'    : '✚',
+    \ 'Untracked' : '✭',
+    \ 'Renamed'   : '➜',
+    \ 'Unmerged'  : '═',
+    \ 'Deleted'   : '✖',
+    \ 'Dirty'     : '✗',
+    \ 'Clean'     : '✓',
+    \ 'Unknown'   : '?'
+    \ }
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -156,9 +167,9 @@ map <silent> <F8>   <leader>rb
 "nmap <silent> <Leader>oJ :FSSplitBelow<CR>
 
 "Now infect with plugins
-let g:pathogen_disabled = ['taglist.vim', 'vim-fugitive', 'gitv']
+let g:pathogen_disabled = ['vim-fugitive', 'gitv']
 if !executable('ctags')
-    let g:pathogen_disabled = g:pathogen_disabled + ['taglist.vim']
+    let g:pathogen_disabled = g:pathogen_disabled + []
 endif
 
 execute pathogen#infect()

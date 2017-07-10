@@ -1,8 +1,5 @@
-bufexplorer
 syntastic
-tabular
 undotree
-vim-polyglot
 xmledit
 
    <<< Vim >>>
@@ -39,6 +36,7 @@ p  - paste after (P before)
 r<ch> - replace char
 y  - yank
 vi" - visually select all inside ""
+vi{ - visually select all inside {}
 u  - undo (U all in line)
 ^R - redo
 
@@ -179,3 +177,8 @@ go   - preview
    <<< Whitespace >>>
 :StripWhitespace
 :ToggleWhitespace
+
+   <<< Tabular >>>
+:Tabularize /<regex>
+:Tab /=    - aligns '=' in one col
+:Tab /:\zs - aligns values after :<space>
