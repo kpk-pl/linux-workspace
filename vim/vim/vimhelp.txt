@@ -74,6 +74,8 @@ F6   - show diagnostic
 :bdN   - delete Nth buffer
 :sp f  - open f in Hsplit
 :vsp f - open f in Vsplit
+C-o    - switch to last buffer
+C-i    - switch to next buffer
 F10    - list buffers and open
 F11    - prev buffer
 C-F11  - next buffer
