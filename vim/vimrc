@@ -26,6 +26,7 @@ set noswapfile
 set scrolloff=15
 set laststatus=2
 set noshowmode " don't show -- INSERT -- because it is on statusline
+set clipboard+=unnamedplus
 
 " highlight search results
 set hlsearch
@@ -153,7 +154,8 @@ map <silent> <S-F7> <leader>rT
 map <silent> <F8>   <leader>rb
 
 "Clang-format
-let g:clang_format#command = 'clang-format-6.0'
+let g:clang_format#command = '/home/krzysztof/Documents/SabreSync/gitutils/clang-format'
+let g:clang_format#detect_style_file = 1
 autocmd FileType c,cpp,objc nnoremap <buffer><C-k> :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><C-k> :ClangFormat<CR>
 
