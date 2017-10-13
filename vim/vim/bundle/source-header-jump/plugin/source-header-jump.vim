@@ -14,6 +14,11 @@ function! SourceHeaderJump()
     if withoutExt =~# "Fwd$"
       let withoutFwd = strpart(withoutExt, 0, strlen(withoutExt)-3)
       let candidates = candidates + [withoutFwd.".h"]
+    elseif withoutExt =~# "Impl$"
+      let withoutImpl = strpart(withoutExt, 0, strlen(withoutExt)-4)
+      let candidates = candidates + [withoutImpl.".h"]
+    else
+      let candidates = candidates + [withoutExt."Impl.h"]
     endif
   elseif extension == "C" || extension == "cpp"
     let candidates = [withoutExt.".h"]
