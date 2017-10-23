@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]] ; then
+  echo "Aggregates 'key value' data reading from stdin and prints result.
+Input data must be separated by a space.
+
+Example:
+  cat my.csv | tr ',' ' ' | $0"
+  exit 0
+fi
+
+declare -A sum
+
+while read key val ; do
+  ((sum[$key]+=$val))
+done
+
+for key in "${!sum[@]}" ; do
+  echo "$key,${sum[$key]}"
+done
+
