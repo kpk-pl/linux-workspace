@@ -73,7 +73,7 @@ function back_one()
 function add_command()
 {
   local tmp=$(mktemp /tmp/XXXXXX.piper)
-  cat $(last_output) | $1 > $tmp
+  cat $(last_output) | eval "$1" > $tmp
 
   if [[ $? -ne 0 ]] ; then
     rm $tmp
@@ -93,6 +93,6 @@ while true ; do
   .show|.s) show_all ;;
   .back|.b) back_one ;;
   .help|.h) echo "Commands: print, exec, show, back, quit" ;;
-  *) add_command "$INPUTCMD $INPUTPARAMS" ;;
+  *) add_command "$INPUTCMD $INPUTPARAMS" ; execute ;;
   esac
 done
