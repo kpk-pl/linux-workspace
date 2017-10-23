@@ -1,0 +1,98 @@
+#!/bin/bash
+
+SOURCEFILE=
+
+#if readlink /proc/$$/fd/0 | grep -q "^pipe:"; then
+#  SOURCEFILE=$(mktemp /tmp/piper-source-XXXXXX.piper)
+#  cat
+#else
+  if [[ $# -lt 1 ]] ; then
+    echo "Usage: $0 inputfile"
+    exit 0
+  fi
+  SOURCEFILE="$1"
+#fi
+
+SOURCELINES="$(wc -l $SOURCEFILE)"
+
+COMMANDS=()
+OUTPUTS=()
+
+function reset()
+{
+  for f in ${OUTPUTS[@]}; do
+    rm $f
+  done
+
+  if [[ "$SOURCEFILE" == /tmp/piper-source-*.piper ]] ; then
+    rm "$SOURCEFILE"
+  fi
+
+  exit 0
+}
+
+trap reset EXIT
+
+
+
+function get_prompt()
+{
+  echo "${#COMMANDS[@]} > "
+}
+
+function last_output()
+{
+  if [[ "${#OUTPUTS[@]}" -eq 0 ]] ; then
+    echo "$SOURCEFILE"
+  else
+    echo "${OUTPUTS[${#OUTPUTS[@]}-1]}"
+  fi
+}
+
+function execute()
+{
+  # sed -n ':a;N;s/[^\n]*/&/2;Ta;2p;$p;D'
+  cat $(last_output) | head -5
+}
+
+function show_all()
+{
+  for cmd in "${COMMANDS[@]}" ; do
+    echo -n "| $cmd "
+  done
+  echo
+}
+
+function back_one()
+{
+  unset 'COMMANDS[${#COMMANDS[@]}-1]'
+  rm "${OUTPUTS[${#OUTPUTS[@]}-1]}"
+  unset 'OUTPUTS[${#OUTPUTS[@]}-1]'
+}
+
+function add_command()
+{
+  local tmp=$(mktemp /tmp/XXXXXX.piper)
+  cat $(last_output) | $1 > $tmp
+
+  if [[ $? -ne 0 ]] ; then
+    rm $tmp
+    return 1
+  fi
+
+  OUTPUTS+=("$tmp")
+  COMMANDS+=("$1")
+}
+
+while true ; do
+  read -p "$(get_prompt)" INPUTCMD INPUTPARAMS
+  case "$INPUTCMD" in
+  .print|.p) execute ;;
+  .exec|.e) execute ;;
+  .quit|.q) exit 0 ;;
+  .show|.s) show_all ;;
+  .back|.b) back_one ;;
+  .help|.h) echo "Commands: print, exec, show, back, quit" ;;
+  *) add_command "$INPUTCMD $INPUTPARAMS" ;;
+  esac
+done
