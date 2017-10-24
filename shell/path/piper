@@ -51,8 +51,22 @@ function last_output()
 
 function execute()
 {
-  # sed -n ':a;N;s/[^\n]*/&/2;Ta;2p;$p;D'
-  cat $(last_output) | head -5
+  local len=5
+  if [[ $# -gt 0 ]] ; then
+    len="$1"
+  fi
+
+  sed -n ':a;N;s/[^\n]*/&/'$len';Ta;'$len'p;$p;D' $(last_output)
+  #cat $(last_output) | head -$len
+}
+
+function save()
+{
+  if [[ $# -eq 0 ]] ; then
+    echo "No filename provided"
+    return 1
+  fi
+  cp $(last_output) "$1"
 }
 
 function show_all()
@@ -73,7 +87,7 @@ function back_one()
 function add_command()
 {
   local tmp=$(mktemp /tmp/XXXXXX.piper)
-  cat $(last_output) | eval "$1" > $tmp
+  cat $(last_output) | eval $1 > $tmp
 
   if [[ $? -ne 0 ]] ; then
     rm $tmp
@@ -87,12 +101,12 @@ function add_command()
 while true ; do
   read -p "$(get_prompt)" INPUTCMD INPUTPARAMS
   case "$INPUTCMD" in
-  .print|.p) execute ;;
-  .exec|.e) execute ;;
+  .exec|.e) execute $INPUTPARAMS ;;
   .quit|.q) exit 0 ;;
-  .show|.s) show_all ;;
-  .back|.b) back_one ;;
-  .help|.h) echo "Commands: print, exec, show, back, quit" ;;
-  *) add_command "$INPUTCMD $INPUTPARAMS" ; execute ;;
+  .pipe|.p) show_all ;;
+  .back|.b) back_one && execute ;;
+  .save|.s) save $INPUTPARAMS ;;
+  .help|.h) echo "Commands: exec, pipe, show, back, save, quit, help" ;;
+  *) add_command "$INPUTCMD $INPUTPARAMS" && execute ;;
   esac
 done
