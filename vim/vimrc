@@ -50,6 +50,9 @@ nnoremap <S-F11> <C-i>
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
+"Esc exits the terminal window
+tnoremap <Esc> <C-\><C-n>
+
 "Up/Down arrows with Ctrl move 10 lines at a time
 nnoremap <C-Down> 10j
 nnoremap <C-Up> 10k
@@ -60,6 +63,25 @@ nnoremap <PageDown> <C-d>zz
 
 "C++ include guards (type name of a guard and execute)
 nnoremap <leader>mi yaw^i#ifndef <Esc>o#define <Esc>po<Return><Esc>Go<Return>#endif // <Esc>pkk
+
+"Move/Copy buffer to new tab and/or go back
+nnoremap <leader>mtm <C-W>T
+nnoremap <leader>mtc <C-w>v<C-w>T
+nnoremap <leader>mtb mAZZ<C-w>v`A<C-w>L
+
+" Zoom / Restore window in current tab
+function! s:ZoomToggle() abort
+  if exists('t:zoom_winrestcmd')
+    execute t:zoom_winrestcmd
+    unlet t:zoom_winrestcmd
+  else
+    let t:zoom_winrestcmd = winrestcmd()
+    resize
+    vertical resize
+  endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <C-A> :ZoomToggle<CR>
 
 "set t_Co=256
 "if &term =~ '256color'
@@ -142,6 +164,7 @@ nnoremap <F6> :YcmShowDetailedDiagnostic<CR>
 nnoremap <C-F6> :YcmDiags<CR>
 nnoremap <leader>yt :YcmCompleter GetType<CR>
 nnoremap <leader>yg :YcmCompleter GoTo<CR>
+nnoremap <leader>yG <C-w>v<C-w>L:YcmCompleter GoTo<CR>
 nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
@@ -159,21 +182,53 @@ let g:clang_format#detect_style_file = 1
 autocmd FileType c,cpp,objc nnoremap <buffer><C-k> :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><C-k> :ClangFormat<CR>
 
-"Fswitch
-"au! BufEnter *.C let b:fswitchdst = 'h,hpp,H'
-"au! BufEnter *.h let b:fswitchdst = 'C,c,cpp'
-"nmap <silent> <Leader>oo :FSHere<CR>
-"nmap <silent> <Leader>ol :FSRight<CR>
-"nmap <silent> <Leader>oh :FSLeft<CR>
-"nmap <silent> <Leader>ok :FSAbove<CR>
-"nmap <silent> <Leader>oj :FSBelow<CR>
-"nmap <silent> <Leader>oL :FSSplitRight<CR>
-"nmap <silent> <Leader>oH :FSSplitLeft<CR>
-"nmap <silent> <Leader>oK :FSSplitAbove<CR>
-"nmap <silent> <Leader>oJ :FSSplitBelow<CR>
+"Easymotion
+let g:EasyMotion_smartcase = 1
+map <leader><leader>f <Plug>(easymotion-bd-f)
+nmap <leader><leader>f <Plug>(easymotion-overwin-f)
+map <leader><leader>w <Plug>(easymotion-bd-w)
+nmap <leader><leader>w <Plug>(easymotion-overwin-w)
+nmap <leader><leader>s <Plug>(easymotion-overwin-f2)
+map <leader><leader>L <Plug>(easymotion-bd-jk)
+nmap <leader><leader>L <Plug>(easymotion-overwin-line)
+
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
+" consider incsearch-fuzzyspell-XXX)
+"map <leader>z/ <Plug>(incsearch-easymotion-/)
+"map <leader>z? <Plug>(incsearch-easymotion-?)
+"map <leader>zg/ <Plug>(incsearch-easymotion-stay)
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+noremap <silent><expr> <leader>z/  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> <leader>z?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> <leader>zg/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzy#converter()],
+  \   'modules': [incsearch#config#easymotion#module()],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+noremap <silent><expr> <leader>Z/ incsearch#go(<SID>config_easyfuzzymotion())
+
 
 "Now infect with plugins
-let g:pathogen_disabled = ['vim-fugitive', 'gitv']
+let g:pathogen_disabled = ['vim-fugitive']
 if !executable('ctags')
     let g:pathogen_disabled = g:pathogen_disabled + []
 endif

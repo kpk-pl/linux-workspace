@@ -16,6 +16,7 @@ xmledit
 *   - search word under cursor
 q<ch> - start recording macro
 @<ch> - play macro (@@ - last)
+:terminal - open terminal (Esc close)
 
    <<< Editing >>>
 dd - delete line (d2d)
@@ -30,6 +31,7 @@ x  - delete char
 D  - delete from cur to EOL
 df<ch> - delete to next <ch> including
 dt<ch> - delete up to next <ch> excluding
+dgn - delete next search pattern match
 c  - delete and go to insert mode
 o  - insert line below (O above)
 p  - paste after (P before)
@@ -39,6 +41,16 @@ vi" - visually select all inside ""
 vi{ - visually select all inside {}
 u  - undo (U all in line)
 ^R - redo
+
+   <<< EasyMotion >>>
+Use Tab to scroll
+/  - find forward (z/ - easymotion)
+?  - find backward (z? - easymotion)
+g/ - find but stay (zg/ - easymotion)
+<LL>w         - search for words
+<LL>f<ch>     - search for char
+<LL>s<ch><ch> - search for 2 chars
+
 
    <<< YouCompleteMe >>>
 F5   - recompile
@@ -81,8 +93,12 @@ F11    - prev buffer
 C-F11  - next buffer
 S-F11  - last buffer
 :only  - close all but one buffer
+ZZ     - close current buffer
 ^W V   - Vsplit
 ^W S   - Hsplit
+^W _   - maximize vertically
+^W |   - maximize horizontally
+^W =   - equalize size
 
    <<< Tabs >>>
 :tab ball - open each buf in new tab
