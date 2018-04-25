@@ -51,7 +51,7 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
 "Esc exits the terminal window
-tnoremap <Esc> <C-\><C-n>
+"tnoremap <Esc> <C-\><C-n>
 
 "Up/Down arrows with Ctrl move 10 lines at a time
 nnoremap <C-Down> 10j
@@ -169,15 +169,8 @@ nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
 
-"Rtags
-let g:rtagsRcCmd = '/home/krzysztof/Workspace/linux-workspace/vim/rtags/rtags/bin/rc'
-map <silent> <F7>   <leader>rj
-map <silent> <C-F7> <leader>rV
-map <silent> <S-F7> <leader>rT
-map <silent> <F8>   <leader>rb
-
 "Clang-format
-let g:clang_format#command = '/home/krzysztof/Documents/SabreSync/gitutils/clang-format'
+let g:clang_format#command = 'clang-format-5.0'
 let g:clang_format#detect_style_file = 1
 autocmd FileType c,cpp,objc nnoremap <buffer><C-k> :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><C-k> :ClangFormat<CR>
@@ -229,9 +222,6 @@ noremap <silent><expr> <leader>Z/ incsearch#go(<SID>config_easyfuzzymotion())
 
 "Now infect with plugins
 let g:pathogen_disabled = ['vim-fugitive']
-if !executable('ctags')
-    let g:pathogen_disabled = g:pathogen_disabled + []
-endif
 
 execute pathogen#infect()
 
