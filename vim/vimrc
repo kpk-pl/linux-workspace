@@ -22,6 +22,7 @@ set helplang=en
 set spelllang=en,pt_br
 set history=50
 set cursorline
+set cursorcolumn
 set noswapfile
 set scrolloff=15
 set laststatus=2
@@ -228,6 +229,7 @@ execute pathogen#infect()
 colorscheme valloric
 highlight VertSplit cterm=NONE ctermbg=NONE
 highlight CursorLine cterm=NONE ctermbg=237
+highlight CursorColumn cterm=NONE ctermbg=237
 
 " Mark lines exceeding column width
 if exists('+colorcolumn')
