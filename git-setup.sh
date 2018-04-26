@@ -5,6 +5,7 @@ read -p "User name: " USERNAME
 read -p "User email: " USEREMAIL
 git config --global user.name ${USERNAME-'Krzysztof Kapusta'}
 git config --global user.email ${USEREMAIL-'krz.kapusta@gmail.com'}
+git config --global log.follow true
 
 git config --global alias.statsu status
 git config --global alias.tree "log --graph --color --decorate --format=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --remotes"
