@@ -43,11 +43,10 @@ nnoremap <F1> :call OpenHelpFile()<CR>
 
 nnoremap <F9> :call SourceHeaderJump()<CR>
 nnoremap <S-F9> *:call SourceHeaderJump()<CR>n:noh<CR>
-nnoremap <F10> :buffers<CR>:buffer<Space>
+"nnoremap <F10> :buffers<CR>:buffer<Space>
+nnoremap <F10> :ToggleBufExplorer<CR>
 nnoremap <F11> <C-o>
 nnoremap <S-F11> <C-i>
-"nnoremap <F2> :UndotreeToggle<CR>
-"nnoremap <F3> :UndotreeFocus<CR>
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
@@ -61,9 +60,6 @@ nnoremap <C-Up> 10k
 "PageUp/PageDown should move screen and keep current line position
 nnoremap <PageUp> <C-u>zz
 nnoremap <PageDown> <C-d>zz
-
-"C++ include guards (type name of a guard and execute)
-nnoremap <leader>mi yaw^i#ifndef <Esc>o#define <Esc>po<Return><Esc>Go<Return>#endif // <Esc>pkk
 
 "Move/Copy buffer to new tab and/or go back
 nnoremap <leader>mtm <C-W>T

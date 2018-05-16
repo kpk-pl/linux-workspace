@@ -1,7 +1,3 @@
-syntastic
-undotree
-xmledit
-
    <<< Vim >>>
 ,   - <> leader
 :n  - go to nth line
@@ -16,7 +12,6 @@ xmledit
 *   - search word under cursor
 q<ch> - start recording macro
 @<ch> - play macro (@@ - last)
-:terminal - open terminal (Esc close)
 
    <<< Editing >>>
 dd - delete line (d2d)
@@ -42,6 +37,7 @@ vi{ - visually select all inside {}
 u  - undo (U all in line)
 ^R - redo
 
+
    <<< EasyMotion >>>
 Use Tab to scroll
 /  - find forward (z/ - easymotion)
@@ -61,21 +57,6 @@ F6   - show diagnostic
 <>yd - get doc
 <>yg - go to
 
-   <<< Rtags >>>
-<>ri - symbol info
-<>rj - follow location
-<>rJ - follow only declaration
-<>rS - follow open in hsplit
-<>rV - follow open in vsplit
-<>rT - follow open in new tab
-<>rp - jump to parent
-<>rf - find references
-<>rn - find references by name
-<>rs - find symbols by name
-<>rr - reindex file
-<>rq - rename
-<>rv - find virtuals
-<>rb - jump back
 
    <<< Buffers >>>
 :ls    - list open buffers
@@ -88,17 +69,18 @@ F6   - show diagnostic
 :vsp f - open f in Vsplit
 C-o    - switch to last buffer
 C-i    - switch to next buffer
-F10    - list buffers and open
+F10    - list buffers and open (bufexplorer)
 F11    - prev buffer
 C-F11  - next buffer
 S-F11  - last buffer
 :only  - close all but one buffer
 ZZ     - close current buffer
-^W V   - Vsplit
-^W S   - Hsplit
+^W v   - Vsplit
+^W s   - Hsplit
 ^W _   - maximize vertically
 ^W |   - maximize horizontally
 ^W =   - equalize size
+
 
    <<< Tabs >>>
 :tab ball - open each buf in new tab
@@ -107,10 +89,16 @@ ZZ     - close current buffer
 :tabs  - list all tabs
 :tab help - get help
 
+
    <<< Argumentative >>>
 da, di, - delete function parameter
 [, ],   - move between param bounds
 <, >,   - shift arguments
+
+   <<< Whitespace >>>
+:StripWhitespace
+:ToggleWhitespace
+
 
    <<< Navigation >>>
 ^  - go to beg of text
@@ -136,12 +124,22 @@ z./zz - center scroll
 ^D  - move cur to bottom
 HML - move to top/middle/bottom
 
+
    <<< Objects/Motions >>>
-w   - word
 a   - all
 i   - in
 t   - till
 f/F - find fwd/bck
+
+   <<< Targets >>>
+w   - word
+,   - item in comma separated list (supported other special chars)
+({[< - brackets (closing one supported)
+in(  - next distant bracket (all supported)
+il(  - previous distant bracket
+'"  - quotes
+a   - function argument
+
 
    <<< Easygrep >>>
 <>vv - word under cur
@@ -156,6 +154,7 @@ f/F - find fwd/bck
 :ReplaceUndo
 :GrepOptions :GrepProgram
 
+
    <<< NERDCommenter >>>
 <>cc - comment line
 <>cn - force nesting comment line
@@ -167,6 +166,7 @@ f/F - find fwd/bck
 <>cA - start comment at EOL
 <>cu - uncomment
 
+
    <<< Ctrl-P >>>
 ^D - filename search tgl
 ^R - regex tgl
@@ -177,6 +177,7 @@ f/F - find fwd/bck
 ^N - next
 ^Z - mark tgl
 ^O - open all
+
 
    <<< NERDTree >>>
 t    - open new tab (T silently)
@@ -191,12 +192,3 @@ R    - set new root
 go   - preview
 ?    - quick help
 ^n   - focus
-
-   <<< Whitespace >>>
-:StripWhitespace
-:ToggleWhitespace
-
-   <<< Tabular >>>
-:Tabularize /<regex>
-:Tab /=    - aligns '=' in one col
-:Tab /:\zs - aligns values after :<space>
