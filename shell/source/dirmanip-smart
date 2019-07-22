@@ -1,0 +1,53 @@
+#!/bin/bash
+
+function __fuzzy_suggest() {
+  local whereto="$1"
+  if [[ -e "$whereto" ]] ; then
+    echo "$whereto"
+    return 0
+  fi
+
+  if ! [[ -e /var/tmp/.sd.md5 ]] || ! md5sum -c /var/tmp/.sd.md5 &>/dev/null ; then
+    md5sum ~/.sd > /var/tmp/.sd.md5
+    cut -d' ' -f1 ~/.sd > /var/tmp/.sd.first
+  fi
+
+  local match="$(tre-agrep -B "$whereto" /var/tmp/.sd.first)"
+  if [[ $? -ne 0 ]] ; then
+    echo >&2 "bash: fuzzy: $whereto: No such file or directory"
+    return 1
+  fi
+  if [[ $(echo "$match" | wc -l) -gt 1 ]] ; then
+    echo >&2 "bash: fuzzy: $whereto: Ambiguous"
+    return 1
+  fi
+
+  grep ^"$match" ~/.sd | cut -d' ' -f2
+}
+
+function cd() {
+  if [[ $# -ne 1 ]] || [[ $1 == '-' ]] ; then
+    builtin cd "$@"
+  else
+    local dir=$(__fuzzy_suggest "$1")
+    [[ $? -eq 0 ]] && builtin cd "$dir"
+  fi
+}
+
+function vim() {
+  if [[ $# -ne 1 ]] ; then
+    $(which vim) "$@"
+  else
+    local dir=$(__fuzzy_suggest "$1")
+    [[ $? -eq 0 ]] && $(which vim) "$dir"
+  fi
+}
+
+function vi() {
+  if [[ $# -ne 1 ]] ; then
+    $(which vi) "$@"
+  else
+    local dir=$(__fuzzy_suggest "$1")
+    [[ $? -eq 0 ]] && $(which vi) "$dir"
+  fi
+}
