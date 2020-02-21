@@ -1,0 +1,18 @@
+set hlsearch       " Highlight search matches
+set nowrap         " Disable word wrap by default
+set nocompatible
+filetype off
+
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+set t_Co=256
+colorscheme solarized
+
+highlight ExtraWhitespace ctermbg=94 guibg=94
+match ExtraWhitespace /\(\t\|\s\+$\)/
+
+filetype plugin indent on
+set tabstop=2      " Display existing tabs with 4 spaces width
+set shiftwidth=2   " when indenting with '>', use 4 spaces width
+set expandtab      " On pressing tab, insert 4 spaces
