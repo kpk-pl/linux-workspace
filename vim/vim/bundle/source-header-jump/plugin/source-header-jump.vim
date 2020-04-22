@@ -3,7 +3,7 @@ function! SourceHeaderJump()
   let extension = expand('%:e')
   let candidates = []
 
-  if extension == "h"
+  if extension == "h" || extension == "hpp"
     let candidates = [withoutExt.".C", withoutExt.".cpp"]
 
     if withoutExt =~# "/include/"
@@ -13,19 +13,19 @@ function! SourceHeaderJump()
 
     if withoutExt =~# "Fwd$"
       let withoutFwd = strpart(withoutExt, 0, strlen(withoutExt)-3)
-      let candidates = candidates + [withoutFwd.".h"]
+      let candidates = candidates + [withoutFwd.".h", withoutFwd.".hpp"]
     elseif withoutExt =~# "Impl$"
       let withoutImpl = strpart(withoutExt, 0, strlen(withoutExt)-4)
-      let candidates = candidates + [withoutImpl.".h"]
+      let candidates = candidates + [withoutImpl.".h", withoutFwd.".hpp"]
     else
       let candidates = candidates + [withoutExt."Impl.h"]
     endif
   elseif extension == "C" || extension == "cpp"
-    let candidates = [withoutExt.".h"]
+    let candidates = [withoutExt.".h", withoutExt.".hpp"]
 
     if withoutExt =~# "/src/"
       let withoutExtInclude = substitute(withoutExt, "/src/", "/include/", "")
-      let candidates = candidates + [withoutExtInclude.".h"]
+      let candidates = candidates + [withoutExtInclude.".h", withoutExtInclude.".hpp"]
     endif
   endif
 

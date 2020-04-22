@@ -41,6 +41,8 @@ function! OpenHelpFile()
 endfunction
 nnoremap <F1> :call OpenHelpFile()<CR>
 
+nnoremap <leader>bi <C-W>S<C-W><Down>:Deol<CR>ssh -q -t dev-7 'cd /atse_git/sg301848/isell/IC && ./ibuild IntelliSell-Server-64'<CR>
+
 nnoremap <F9> :call SourceHeaderJump()<CR>
 nnoremap <S-F9> *:call SourceHeaderJump()<CR>n:noh<CR>
 "nnoremap <F10> :buffers<CR>:buffer<Space>
@@ -122,6 +124,14 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Clean'     : '✓',
     \ 'Unknown'   : '?'
     \ }
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('hpp', '242', 'none', '#888888', '#151515')
+call NERDTreeHighlightFile('h', '242', 'none', '#888888', '#151515')
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -167,7 +177,7 @@ nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
 
 "Clang-format
-let g:clang_format#command = 'clang-format-5.0'
+let g:clang_format#command = 'clang-format-8'
 let g:clang_format#detect_style_file = 1
 autocmd FileType c,cpp,objc nnoremap <buffer><C-k> :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><C-k> :ClangFormat<CR>
@@ -218,20 +228,36 @@ noremap <silent><expr> <leader>Z/ incsearch#go(<SID>config_easyfuzzymotion())
 
 
 "Now infect with plugins
-let g:pathogen_disabled = ['vim-fugitive']
+let g:pathogen_disabled = []
 
 execute pathogen#infect()
 
-colorscheme valloric
 highlight VertSplit cterm=NONE ctermbg=NONE
-highlight CursorLine cterm=NONE ctermbg=237
-highlight CursorColumn cterm=NONE ctermbg=237
 
-" Mark lines exceeding column width
-if exists('+colorcolumn')
-    set colorcolumn=110
-    highlight ColorColumn ctermbg=darkgray
-    " help cterm-colors
+let myMode = "light"
+
+if myMode == "light"
+  colorscheme summerfruit256
+  highlight CursorLine cterm=NONE ctermbg=lightcyan
+  highlight CursorColumn cterm=NONE ctermbg=lightcyan
+
+  " Mark lines exceeding column width
+  if exists('+colorcolumn')
+      set colorcolumn=110
+      highlight ColorColumn ctermbg=lightblue
+      " help cterm-colors
+  endif
+else
+  colorscheme valloric
+  highlight CursorLine cterm=NONE ctermbg=237
+  highlight CursorColumn cterm=NONE ctermbg=237
+
+  " Mark lines exceeding column width
+  if exists('+colorcolumn')
+      set colorcolumn=110
+      highlight ColorColumn ctermbg=darkgray
+      " help cterm-colors
+  endif
 endif
 
 highlight ExtraWhitespace ctermbg=lightyellow
