@@ -32,6 +32,8 @@ set clipboard+=unnamedplus
 " highlight search results
 set hlsearch
 
+source ~/.vimrc.custom
+
 let mapleader=","
 
 function! OpenHelpFile()
@@ -125,13 +127,13 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Unknown'   : '?'
     \ }
 " NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
+"function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+" exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+" exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+"endfunction
 
-call NERDTreeHighlightFile('hpp', '242', 'none', '#888888', '#151515')
-call NERDTreeHighlightFile('h', '242', 'none', '#888888', '#151515')
+"call NERDTreeHighlightFile('hpp', '242', 'none', '#888888', '#151515')
+"call NERDTreeHighlightFile('h', '242', 'none', '#888888', '#151515')
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -228,13 +230,10 @@ noremap <silent><expr> <leader>Z/ incsearch#go(<SID>config_easyfuzzymotion())
 
 
 "Now infect with plugins
-let g:pathogen_disabled = []
-
+" let g:pathogen_disabled = []
 execute pathogen#infect()
 
 highlight VertSplit cterm=NONE ctermbg=NONE
-
-let myMode = "light"
 
 if myMode == "light"
   colorscheme summerfruit256
