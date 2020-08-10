@@ -42,7 +42,7 @@
 	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "vim/vim/bundle/vim-better-whitespace"]
 	path = vim/vim/bundle/vim-better-whitespace
-	url = git://github.com/ntpeters/vim-better-whitespace.git
+	url = https://github.com/ntpeters/vim-better-whitespace.git
 [submodule "vim/vim/bundle/vim-argumentative"]
 	path = vim/vim/bundle/vim-argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
@@ -72,7 +72,7 @@
 	url = http://github.com/octol/vim-cpp-enhanced-highlight.git
 [submodule "vim/vim/bundle/targets.vim"]
 	path = vim/vim/bundle/targets.vim
-	url = git://github.com/wellle/targets.vim.git
+	url = https://github.com/wellle/targets.vim.git
 [submodule "vim/vim/CamelCaseMotion"]
 	path = vim/vim/CamelCaseMotion
 	url = https://github.com/bkad/CamelCaseMotion.git
