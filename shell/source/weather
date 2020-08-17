@@ -1,5 +1,0 @@
-#!/bin/bash
-
-function weather() {
-  curl -4 http://wttr.in/"$1"
-}

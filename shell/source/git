@@ -1,6 +1,0 @@
-#!/bin/bash
-
-function git-tree()
-{
-    git log --graph --color --decorate --format=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --remotes --tags "$@"
-}

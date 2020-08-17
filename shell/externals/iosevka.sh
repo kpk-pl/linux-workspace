@@ -14,6 +14,6 @@ rm $PACK
 mv $DIR ~/.fonts
 
 echo "Updating fonts cache"
-sudo fc-cache -fv
+fc-cache -fv
 
 echo "You can now change terminal font to iosevka"
