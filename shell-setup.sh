@@ -19,7 +19,7 @@ done
 
 for p in shell/path/* ; do
     read -n1 -p "Add ${p##*/} to PATH? [Y/n]" ans ; echo
-    [[ "$ans" == Y ]] && cp "$p" $PATH_DIR
+    [[ "$ans" == Y ]] && ln -s $(pwd)/"$p" $PATH_DIR
 done
 
 for script in shell/externals/* ; do
