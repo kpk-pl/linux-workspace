@@ -7,6 +7,9 @@ git config --global user.name ${USERNAME-'Krzysztof Kapusta'}
 git config --global user.email ${USEREMAIL-'krz.kapusta@gmail.com'}
 git config --global log.follow true
 git config --global help.autocorrect 1
+git contig --global diff.tool vimdiff
+git contig --global --add difftool.prompt false
+git contig --global merge.tool vimdiff
 
 git config --global alias.tree "log --graph --color --decorate --format=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --remotes"
 git config --global alias.htree '!git tree | head -20'
