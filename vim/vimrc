@@ -241,6 +241,11 @@ if myMode == "light"
   highlight CursorLine cterm=NONE ctermbg=lightcyan
   highlight CursorColumn cterm=NONE ctermbg=lightcyan
 
+  highlight DiffAdd    cterm=none ctermfg=none ctermbg=117
+  highlight DiffDelete cterm=none ctermfg=none ctermbg=159
+  highlight DiffChange cterm=none ctermfg=none ctermbg=none
+  highlight DiffText   cterm=none ctermfg=none ctermbg=11
+
   " Mark lines exceeding column width
   if exists('+colorcolumn')
       set colorcolumn=120
