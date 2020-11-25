@@ -32,7 +32,10 @@ set clipboard+=unnamedplus
 " highlight search results
 set hlsearch
 
-source ~/.vimrc.custom
+let myMode="dark"
+if filereadable(expand("~/.vimrc.custom"))
+  source ~/.vimrc.custom
+endif
 
 let mapleader=","
 
