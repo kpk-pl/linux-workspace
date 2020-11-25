@@ -3,3 +3,4 @@ export PAGER=less
 shopt -s extglob
 
 alias vim="TERM=screen-256color vim -p"
+alias vi="TERM=screen-256color vim -p"
