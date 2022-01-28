@@ -82,3 +82,9 @@
 [submodule "vim/vim/bundle/deol.nvim"]
 	path = vim/vim/bundle/deol.nvim
 	url = https://github.com/Shougo/deol.nvim.git
+[submodule "vim/vim/bundle/fzf"]
+	path = vim/vim/bundle/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "vim/vim/bundle/fzf.vim"]
+	path = vim/vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
