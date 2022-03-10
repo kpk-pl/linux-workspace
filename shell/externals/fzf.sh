@@ -3,6 +3,7 @@
 read -n1 -p "Uninstall first? [y/n]: " answer
 if [[ "$answer" == y ]] && [ -f ~/.fzf/uninstall ] ; then
   ~/.fzf/uninstall
+  rm -rf ~/.fzf
 fi
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
