@@ -88,3 +88,6 @@
 [submodule "vim/vim/bundle/fzf.vim"]
 	path = vim/vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/vim/bundle/vim-cmake"]
+	path = vim/vim/bundle/vim-cmake
+	url = https://github.com/cdelledonne/vim-cmake.git
