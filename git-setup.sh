@@ -1,9 +1,19 @@
 git config --global push.default simple
 git config --global pull.rebase true
 
-read -p "User name: " USERNAME
-read -p "User email: " USEREMAIL
-git config --global user.name "{USERNAME-'Krzysztof Kapusta'}"
+if [ -z "$1" ] ; then
+  read -p "User name: " USERNAME
+else
+  USERNAME="$1"
+fi
+
+if [ -z "$2" ] ; then
+  read -p "User email: " USEREMAIL
+else
+  USERMAIL="$2"
+fi
+
+git config --global user.name "${USERNAME-'Krzysztof Kapusta'}"
 git config --global user.email "${USEREMAIL-'krz.kapusta@gmail.com'}"
 git config --global log.follow true
 git config --global help.autocorrect 1

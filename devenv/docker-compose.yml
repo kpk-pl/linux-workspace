@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  kpk_dev:
+    container_name: kpk_env
+    build:
+      context: ../
+      args:
+        BASE: ubuntu
+        USERNAME: "Krzysztof kapusta"
+        USEREMAIL: "krz.kapusta@gmail.com"
+      dockerfile: devenv/Dockerfile
+    volumes:
+      - ./workspace/:/home/workspace/
+      - ${HOME}/.gnupg:/root/.gnupg
+    privileged: true
+    ipc: host
+    shm_size: 4gb
+    security_opt:
+      - seccomp:unconfined
+
+networks:
+  kpk_net:
