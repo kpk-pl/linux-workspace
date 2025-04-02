@@ -13,4 +13,6 @@ echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main" >> /etc/apt/s
 echo "deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main" >> /etc/apt/sources.list
 
 apt-get update
-apt-get install -y clang clang-tidy-15
+apt-get install -y clang clang-tidy-15 build-essential
+python3 -m pip install --upgrade pip
+pip3 install clang-format==19.1.0

@@ -14,12 +14,15 @@ COPY ./vim/vimrc /root/.vimrc
 COPY ./vim/vim /root/.vim
 
 RUN apt-get update \
- && apt-get install -y util-linux bsdmainutils silversearcher-ag inotify-tools dialog rsync \
-                       curl valgrind telnet dnsutils net-tools iputils-ping unzip graphviz \
-                       libsecret-1-0 libsecret-1-dev clangd-12 tre-agrep gnupg2 ccache gettext \
- && pip3 install kafka-python pymongo \
+ && apt-get install -y git util-linux bsdmainutils silversearcher-ag inotify-tools dialog rsync \
+                       wget curl valgrind telnet dnsutils net-tools iputils-ping unzip graphviz \
+                       libsecret-1-0 libsecret-1-dev clangd-12 tre-agrep gnupg2 ccache gettext jq \
+                       locales less python3 python3-pip libjemalloc-dev \
+ && pip3 install kafka-python pymongo pyright \
  && /tmp/shell-setup.sh \
  && /tmp/tools-setup.sh \
+ && /tmp/clang-setup.sh \
+ && /tmp/ccache-setup.sh \
  && /tmp/git-setup.sh ${USERNAME} ${USEREMAIL} \
  && /tmp/neovim-setup.sh
 

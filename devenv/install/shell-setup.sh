@@ -31,7 +31,7 @@ echo "export CLICOLOR=1" >> ~/.bash_profile
 echo "export TERM=xterm-256color" >> ~/.bash_profile
 echo "source /usr/share/bash-completion/completions/git" >> ~/.bash_profile
 echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-echo "export LC_ALL=C.UTF-8" >> ~/.bash_profile
+echo "export LC_ALL=en_US.utf8" >> ~/.bash_profile
 
 echo 'function build(){ if [[ -d ./build ]] ; then cmake --build ./build $@ ; elif [[ -d ../build ]] ; then cmake --build ../build $@ ; else cmake --build . $@ ; fi; }' >> ~/.bash_profile
 
