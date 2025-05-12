@@ -18,4 +18,4 @@ fi
 
 mkdir -p ~/.local/share/nvim/mason/packages/clangd
 mkdir -p ~/.local/share/nvim/mason/bin/
-ln -s /usr/bin/clangd-12 ~/.local/share/nvim/mason/bin/clangd
+ln -s /usr/bin/clangd-18 ~/.local/share/nvim/mason/bin/clangd
